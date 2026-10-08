@@ -161,16 +161,19 @@
 
 ---
 
-### Entry 3 - [Date and Time]
-**What I did**:
+### Entry 3 - [October 4, 2026, 10:13 AM]
+**What I did**:Implemented Feature 2 (Context Switch Tracking)
 
-**Details**:
+**Details**: 
+- Added a `contextSwitchCount` counter variable to track CPU switches  
+- Incremented context switches whenever a new process thread is scheduled to execute  
+- Added final context switch summary output at the end of execution
 
-**Challenges**:
+**Challenges**: Differentiating between quantum expiration context switches and initial thread startup.
 
-**Solution**:
+**Solution**: Placed the counter increment precisely within the scheduler thread swap logic.
 
-**Time spent**:
+**Time spent**: 1 hour 15 minutes
 
 ---
 
