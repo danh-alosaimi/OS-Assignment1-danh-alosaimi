@@ -213,13 +213,13 @@
 
 > 💡 **TIP:** Fill this in **last**, after all entries are written.
 
-**Total time spent on assignment**: [X hours]
+**Total time spent on assignment**: [5 hours 30 minutes]
 
-**Most challenging part**:
+**Most challenging part**: Accurately calculating waiting time and turnaround time without including actual execution burst durations across multiple Round Robin quantum cycles.
 
-**Most interesting learning**:
+**Most interesting learning**: Understanding how Java thread synchronization, wait(), and notifyAll() control process state transitions safely during context switching.
 
-**What I would do differently next time**:
+**What I would do differently next time**: Implement dynamic quantum adjustment based on process priorities to optimize total waiting time.
 
 ---
 
