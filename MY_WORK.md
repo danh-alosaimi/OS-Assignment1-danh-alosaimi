@@ -177,16 +177,19 @@
 
 ---
 
-### Entry 4 - [Date and Time]
-**What I did**:
+### Entry 4 - [October 5, 2026, 06:43 PM]
+**What I did**: Implemented Feature 3 (Waiting Time Tracking)
 
 **Details**:
+- Integrated `System.currentTimeMillis()` to record process arrival, start, and completion timestamps  
+- Added logic to calculate total waiting time for each individual process thread  
+- Tracked accumulated waiting times across multiple Round Robin quantum cycles
+  
+**Challenges**: Accurately measuring waiting time without including CPU execution burst durations.
 
-**Challenges**:
+**Solution**: Deducted actual execution time from the total turnaround time (`Turnaround - Burst = Waiting`).
 
-**Solution**:
-
-**Time spent**:
+**Time spent**: 1 hour 30 minutes
 
 ---
 
