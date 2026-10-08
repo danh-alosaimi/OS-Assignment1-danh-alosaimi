@@ -145,16 +145,19 @@
 
 ---
 
-### Entry 2 - [Date and Time]
-**What I did**:
+### Entry 2 - [October 3, 2026, 08:05 PM]
+**What I did**: Implemented Feature 1 (Process Priority Attribute)
 
 **Details**:
+- Added `priority` integer field to the `Process` class constructor and getters  
+- Updated console logging outputs to display process priority alongside process IDs  
+- Ensured process state remains thread-safe during concurrent execution
 
-**Challenges**:
+**Challenges**: Displaying priority values clearly in the console output without messing up log formatting.
 
-**Solution**:
+**Solution**: Formatted system output print statements to clearly structure process execution steps.
 
-**Time spent**:
+**Time spent**: 1 hour
 
 ---
 
