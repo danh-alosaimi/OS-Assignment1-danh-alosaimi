@@ -209,19 +209,6 @@
 
 ---
 
-### Entry 6 - [Optional - Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
-
----
-
 ## Development Log Summary
 
 > 💡 **TIP:** Fill this in **last**, after all entries are written.
