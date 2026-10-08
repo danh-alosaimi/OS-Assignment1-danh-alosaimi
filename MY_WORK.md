@@ -129,16 +129,19 @@
 
 ## Your Development Log
 
-### Entry 1 - [Date and Time]
-**What I did**:
+### Entry 1 - [October 2, 2026, 12:13 PM]
+**What I did**: Forked repository, environment setup, and student ID update
 
 **Details**:
+- Forked the starter repository to my GitHub account  
+- Configured local environment and updated student ID for random number generator  
+- Analyzed initial Round Robin codebase and thread structure
 
-**Challenges**:
+**Challenges**: Understanding the existing thread synchronization mechanism using Java monitors.
 
-**Solution**:
+**Solution**: Reviewed the `wait()` and `notifyAll()` flow in the ready queue implementation.
 
-**Time spent**:
+**Time spent**: 45 minutes
 
 ---
 
