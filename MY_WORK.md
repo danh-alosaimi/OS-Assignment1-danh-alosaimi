@@ -295,7 +295,7 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[In operating systems, a process is an independent execution unit with its own private memory address space, whereas a thread is a lightweight segment of a process that shares memory and resources with other threads in the same process. In this assignment, we simulated processes using Java threads instead of separate operating system processes to avoid heavy creation overhead and complex inter-process communication (IPC) mechanisms. In our code, the Process class implements Runnable, and each process is executed by an actual Java Thread object created via new Thread(process) inside the addProcessToQueue() method. Using threads allows SchedulerSimulation.java to efficiently manipulate shared data structures like the ready queue and coordinate task execution with low context-switching overhead.]
 
 ## Question 2: Ready Queue Behavior
 
@@ -307,15 +307,25 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[In Round-Robin scheduling, when a process cannot complete its execution within the assigned time quantum, it is preempted by the scheduler and placed back at the end of the ready queue. The scheduler saves its current state, performs a context switch, and picks the next process from the front of the ready queue to ensure CPU fairness. Re-queueing is essential because it guarantees equal access to CPU time and prevents longer processes from starving shorter ones. In my simulation run (Student ID: 445052389), process P1 had a burst time of 5674ms with a time quantum of 2000ms, causing it to be re-queued twice before completing its execution.]
 
 Example from my output:
 ```
-[Paste a relevant snippet from your program output here showing a process being re-queued]
++ P1 (Priority: 8) added to ready queue | Burst time: 5674ms
+┌─ Ready Queue ─────────────────────────────────────────────────────────────────
+│ [P2 → P3 → P4 → P5 → P6 → P7 → P8 → P9 → P10 → P11 → P12]
+└───────────────────────────────────────────────────────────────────────────────
+
+  ▶ P1 executing quantum [2000ms] 
+  ⚡ Quantum progress: [███████████████] 100%
+  ⏸ P1 completed quantum 2000ms │ Overall progress: [██████░░░░░░░░░░░░░░] 35%
+     Remaining time: 3674ms
+  ↻ P1 yields CPU for context switch
+  + P1 (Priority: 8) added to ready queue | Burst time: 3674ms
 ```
 
 **Explanation of example:**
-[Explain what is happening in the output snippet you pasted.]
+[This output snippet from my simulation demonstrates process P1 running for its maximum assigned time quantum of 2000ms. Since P1 required 5674ms of CPU time, it completed 35% of its overall progress, leaving 3674ms remaining. As a result, P1 yielded the CPU for a context switch and was re-queued at the back of the ready queue behind P12, allowing P2 to take over the CPU next.]
 
 ## Question 3: Thread Lifecycle
 
@@ -325,15 +335,15 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences overall; one short explanation per state)*
 
-1. **New**: [When is P1 in the New state?]
+1. **New**: Process P1 enters the New state when its instance is created and wrapped inside a new Thread object via new Thread(process) in addProcessToQueue().
 
-2. **Runnable**: [When does P1 become Runnable?]
+2. **Runnable**: P1 transitions to Runnable when currentThread.start() is invoked in the main scheduler loop, making it ready and eligible for JVM scheduling.
 
-3. **Running**: [When is P1 Running?]
+3. **Running**: P1 enters the Running state when the CPU actively executes its run() method during its assigned time quantum (2000ms).
 
-4. **Waiting**: [When and why would a thread be Waiting?]
+4. **Waiting**: P1 enters Timed-Waiting when calling Thread.sleep() inside its run() method to simulate progress, and the main thread enters Waiting via join() while waiting for P1 to finish its time slice.
 
-5. **Terminated**: [When is P1 Terminated?]
+5. **Terminated**: P1 reaches the Terminated state when its remaining burst time drops to zero and its run() method finishes execution completely.
 
 ## Question 4: Real-World Applications
 
@@ -346,29 +356,26 @@ Example from my output:
 ### Example 1 (operating-system level): [Name of scenario]
 
 **Description**:
-[Describe the real-world scenario.]
+An OS kernel scheduler uses Round-Robin to distribute CPU time fairly among multiple running user applications (such as a web browser, text editor, and media player).
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
-
+It prevents any single heavy program from monopolizing the processor, ensuring high system responsiveness, predictability, and equal fairness across all active processes.
 ### Example 2: [Name of application/scenario]
 
 **Description**:
-[Describe the real-world scenario or application.]
-
+A multi-threaded web server (like Apache or Tomcat) processing multiple incoming HTTP requests simultaneously using a shared thread pool.
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
-
+It ensures that long database queries or large file downloads do not block fast API requests, maintaining consistent overall response times for all connected users.
 ## Summary
 
 **Key concepts I understood through these questions:**
-1.
-2.
-3.
+1.The fundamental architectural differences between OS-level processes (isolated memory spaces) and Java-level threads (shared memory space and lightweight execution).
+2.How the Round-Robin CPU scheduling algorithm utilizes time quanta and ready queues to ensure fairness and prevent process starvation.
+3.The mapping between Java thread lifecycle states (New, Runnable, Running, Timed-Waiting, Terminated) and underlying operating system thread execution.
 
 **Concepts I need to study more:**
-1.
-2.
+1.Advanced concurrency control mechanisms and synchronization issues (such as race conditions and deadlocks) when multiple threads access shared resources.
+2.Performance tuning and trade-offs regarding optimal time quantum selection in preemptive CPU schedulers.
 
 ---
 
