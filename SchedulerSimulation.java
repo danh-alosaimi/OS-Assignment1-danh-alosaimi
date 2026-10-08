@@ -299,7 +299,7 @@ process.updateWaitingTime();
             System.out.print(Colors.MAGENTA + "│ " + Colors.RESET + Colors.BRIGHT_WHITE + "[" + Colors.RESET);
             int queueCount = 0;
             for (Thread thread : processQueue) {
-                Process process = processMap.get(thread);
+                 process = processMap.get(thread);
                 if (queueCount > 0) System.out.print(Colors.WHITE + " → " + Colors.RESET);
                 System.out.print(Colors.BRIGHT_CYAN + process.getName() + Colors.RESET);
                 queueCount++;
