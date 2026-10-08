@@ -239,7 +239,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[Through this assignment, I gained a practical understanding of how threads execute concurrently in Java using the Runnable interface and Thread.start(). I learned how process state transitions are handled in a Round Robin scheduler simulation by using Java monitors. Using wait() and notifyAll() demonstrated how to safely block and resume thread execution without race conditions. I was surprised by how precisely timing must be managed when simulating execution with Thread.sleep(). Furthermore, tracking metrics like waiting time showed me the real-world performance impact of frequent context switches. Overall, this hands-on experience deepened my conceptual understanding of CPU scheduling algorithms.]
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -247,7 +247,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[The most challenging part was implementing the accurate calculation of process waiting time in Feature 3. Because processes are paused and resumed across multiple quantum slices, tracking cumulative waiting time required careful timestamp logging. Using System.currentTimeMillis() introduced subtle timing discrepancies if execution bursts were not properly deducted. I struggled initially to separate the actual CPU execution duration from the time a process spent waiting in the ready queue. Ensuring thread safety while updating global tracking counters like contextSwitchCount added another layer of difficulty. Debugging these concurrency edge cases required deep tracing of thread state changes.]
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -255,7 +255,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[I overcame these challenges by systematically debugging the code and analyzing the execution log outputs. First, I carefully reviewed the provided README.md and Java monitor documentation to clarify thread synchronization flow. I placed targeted System.out.println() debug statements inside the scheduler swap logic to track timestamp variations. Testing each feature incrementally allowed me to verify thread safety before moving to the next requirement. I refined the waiting time formula by subtracting actual burst times from turnaround time, which resolved calculation errors. Finally, testing with different numbers of processes helped verify the stability of the ASCII summary table output.]
 
 ## Question 4: How can you apply multithreading concepts in real-world applications?
 
@@ -263,7 +263,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[Multithreading concepts are essential for developing responsive, high-performance applications in the real world. For instance, web browsers use dedicated threads for rendering UI, executing JavaScript, and handling network requests simultaneously. In multiplayer video games, separate threads handle physics calculations, graphics rendering, and network synchronization to ensure smooth gameplay. Mobile applications rely on background threads for heavy tasks like fetching data from APIs without freezing the user interface. The synchronization mechanisms I implemented here, such as monitors and process scheduling, directly reflect how modern operating systems manage multi-core CPU resources. Understanding thread coordination helps prevent deadlock and performance bottlenecks in production software.]
 
 ### Optional: What would you like to learn more about?
 
