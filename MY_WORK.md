@@ -193,16 +193,19 @@
 
 ---
 
-### Entry 5 - [Date and Time]
-**What I did**:
+### Entry 5 - [October 5, 2026, 08:15 PM]
+**What I did**:Implemented ASCII Summary Table Output and Final Testing
 
 **Details**:
+- Created `displayWaitingTimeSummary()` method to print a structured summary table  
+- Formatted metrics including Burst Time, Waiting Time, and Turnaround Time with ASCII borders  
+- Ran multi-threaded execution tests with different process quantities to verify thread safety
+  
+**Challenges**: Aligning ASCII borders dynamically based on process ID and time values length.
 
-**Challenges**:
+**Solution**: Used fixed-width printf string formatting for predictable table alignment.
 
-**Solution**:
-
-**Time spent**:
+**Time spent**: 1 hour
 
 ---
 
